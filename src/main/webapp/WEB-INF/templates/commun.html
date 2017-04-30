@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Fragments</title>
+<meta charset="UTF-8"/>
+<script src="js/commun.js"></script>
 </head>
 <body>
 <!-- Bandeaux -->
@@ -12,13 +15,12 @@
 
 <!-- HEADER -->
 
-    <div th:fragment="header(selected)">
-
+    <div th:fragment="logo">
         <!-- Logo -->
-        <div class="span5 logo">
-        		<a href="index"><img src="img/Logo.png" alt="" /></a>
-            	<h5> Travaux m�talliques depuis 1996 </h5>
-        </div>
+        	<a href="index"><img src="img/Logo.png" alt="" /></a>
+        	<h5 id="sloganH5"></h5>
+      </div>  
+     <div th:fragment="header(selected)">
 
         <!-- Main Navigation-->
        <div class="span7 navigation">
@@ -27,7 +29,14 @@
             <ul class="nav">
            <li th:class="${selected == 'index'} ? 'active' "><a href="index">Accueil</a></li>
            <li th:class="${selected == 'entreprise'} ? 'active' "><a href="entreprise">L'entreprise</a></li>
-           <li th:class="${selected == 'prestations'} ? 'active' "><a href="prestations">Nos prestations</a></li>
+           <li th:class="${selected == 'prestations'} ? 'dropdown active': 'dropdown' ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Nos prestations <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="prestations">Nos réalisations</a></li>
+                    <li><a href="metiers">Nos métiers</a></li>
+                </ul>
+            
+            </li>
            <li th:class="${selected == 'contact'} ? 'active' "><a href="contact">Contact</a></li>
            <li th:class="${selected == 'devis'} ? 'active' "><a href="devis">Votre Devis</a></li>
 
@@ -43,11 +52,12 @@
                     <option value="index">Accueil</option>
                     <option value="entreprise">L'entreprise</option>
                     <option value="prestations">Nos prestations</option>
+                    <option value="metiers">Nos métiers</option>
                     <option value="contact">Contact</option>
                     <option value="devis">Votre Devis</option>
                 </select>
                 </div>
-                </form>
+             </form>
 
         </div>
 </div>
@@ -72,7 +82,7 @@
 
                 </div>
                 <div class="span3 footer-col">
-                   <button> Acc�der � mon espace personnel</button>
+                   <a href="connexionIntranetEmploye"> <button>Accéder à mon espace personnel </button></a>
                 </div>
             </div>
 
@@ -82,7 +92,7 @@
                         <div class="span6"><span class="left">Copyright 2012 Piccolo Theme. All rights reserved.</span></div>
                         <div class="span6">
                             <span class="right">
-                            <a href="index">Accueil</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="entreprise">L'entreprise</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="prestations">Nos prestations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="contact">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="devis">Votre Devis</a>
+                            <a href="index">Accueil</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="entreprise">L'entreprise</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="prestations">Nos prestations</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="metiers">Nos métiers</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="contact">Contact</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="devis">Votre Devis</a>
                             </span>
                         </div>
                     </div>
@@ -91,6 +101,7 @@
 
         </div>
     </div>
+    
 
 </body>
 </html>

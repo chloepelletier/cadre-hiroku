@@ -1,7 +1,8 @@
 package projet.cadre.model;
 
 public class Contact {
-	
+
+	private int idContact;
 	private String nomContact ;
 	private String mailContact ;
 	private String societeContact ;
@@ -14,6 +15,15 @@ public class Contact {
 		this.mailContact = mailContact;
 		this.societeContact = societeContact;
 		this.messageContact = messageContact;
+	}
+	
+	
+	public int getIdContact() {
+		return idContact;
+	}
+
+	public void setIdContact(int idContact) {
+		this.idContact = idContact;
 	}
 	
 	public String getNomContact() {

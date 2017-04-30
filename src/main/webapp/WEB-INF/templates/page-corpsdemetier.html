@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadre - Métiers</title>
+
+<!-- CSS
+================================================== -->
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/bootstrapSite.css">
+<link rel="stylesheet" href="css/bootstrap-responsiveSite.css">
+<link rel="stylesheet" href="css/prettyPhoto.css" />
+<link rel="stylesheet" href="css/custom-styleS.css">
+
+
+
+<!-- Favicons
+================================================== -->
+<link rel="shortcut icon" href="img/favicon.png.ico">
+
+<!-- JS
+================================================== -->
+<script src="js/metiers.js"></script>
+<script src="js/jquery-1.8.3.js"></script>
+<script src="js/bootstrapSite.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.custom.js"></script>
+
+</head>
+
+<body>
+     <!-- Bandeaux -->
+   <div th:insert="~{commun :: bandeaux}"></div>
+
+    <div class="container">
+    <!-- Header -->
+      
+       <div class="row header">
+      <div class="span5 logo" id="slogan" th:insert="~{commun :: logo}"></div>
+      <div th:insert="~{commun :: header(prestations)}">
+      </div>
+      
+     
+      </div>
+   
+      
+     <h2>Nos métiers</h2>
+
+     <div class="row">
+
+        <div class="span4 sidebar">
+
+        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+         <h3>Fabrication</h3>
+          <ul class="popular-posts">
+                <li id="fab1">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" >
+                </li>
+                <li id="fab2">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                   </li>
+                <li id="fab3">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                </li>
+        </ul>
+
+        </div>
+        
+        <div class="span4">
+
+        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+         <h3>Installation / Modification</h3>
+         <ul class="popular-posts">
+                <li id="mod1">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" >
+
+                </li>
+                <li id="mod2">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                </li>
+                <li id="mod3">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                </li>
+        </ul>
+        
+        </div>
+        <div class="span4">
+
+        <img src="img/gallery/gallery-img-1-3col.jpg" alt="image">
+         <h3>Maintenance / Contrôle</h3>
+          <ul class="popular-posts">
+                <li id="cont1">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" >
+                </li>
+                <li id="cont2">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                </li>
+                <li id="cont3">
+                    <img src="img/gallery/gallery-img-2-thumb.jpg" alt="Popular Post">
+                </li>
+        </ul>
+        
+        </div>
+        
+    </div>    
+
+  	</div>
+    <!-- Footer Area
+        ================================================== -->
+
+    <div class="footer-container" th:insert="~{commun :: footer}">
+    </div><!-- End Footer -->
+
+    <!-- Scroll to Top -->
+    <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
+
+</body>
+</html>
+

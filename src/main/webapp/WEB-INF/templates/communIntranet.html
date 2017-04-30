@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+
+     <div th:fragment="divNavigationIntranet">
+     	<nav id="navigation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        </nav>
+     </div>
+     
+     <footer th:fragment="footerIntranetEmploye">
+      	<a class="btn btn-primary btn-lg " id="bouton1" href="../deconnexionEmploye">Déconnexion</a>
+      	<a class="btn btn-primary btn-lg " id="bouton2" href="../index">Retour au Site</a>
+      	<span id="employeId" class="disparaitre disparaitreAlerte" th:text="${employeId}"></span>
+      </footer>
+      
+           <footer th:fragment="footerIntranetDirection">
+      	<a class="btn btn-primary btn-lg " id="bouton1" href="../deconnexionDirection">Déconnexion</a>
+      	<a class="btn btn-primary btn-lg " id="bouton2" href="../index">Retour au Site</a>
+      </footer>
+
+</body>
+</html>
