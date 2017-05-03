@@ -13,7 +13,8 @@ function remplissageTableau(){
 	document.getElementById("boutonAdd").onclick=function(){
 		var requetePostReponse = new XMLHttpRequest();
 		requetePostReponse.open("POST","../cadrews/validites");
-		requetePostReponse.responseType = "json";		
+		requetePostReponse.responseType = "json";
+		
 		var prenom = document.getElementById("prenom").value;
 		var nom = document.getElementById("nom").value;
 		var poste = document.getElementById("poste").value;
@@ -73,13 +74,16 @@ function remplisseur(prenom, nom, poste, numero, email){
 function remplissageRecherchebis(){
 	var nb=0;
 	document.getElementById("boutonSearch").onclick=function(){
+		while(document.getElementById("tableauDuPersonnel2").firstChild){
+			document.getElementById("tableauDuPersonnel2").removeChild(document.getElementById("tableauDuPersonnel2").firstChild);
+		}
 		if(nb==0){
 			var champs=document.getElementById("inputSearch").value;
+			document.getElementById("inputSearch").value="";
 			champs=champs.toLowerCase();
 			var getList2 = new XMLHttpRequest();
 			getList2.open("GET","../cadrews/employes/employeByPosteNom/"+champs,true, null, null);
 			getList2.responseType="json";
-			
 			nb++;
 			var table = document.getElementById("tableauDuPersonnel2");
 			var tr2 = document.createElement('tr');
@@ -147,7 +151,36 @@ function remplissageRecherchebis(){
 			
 
 		}
+		
+		remplissageRecherchebis();
 	}
+}
+//remplis la dataliste avec les choix existant dans la BDD
+function remplissageDataListe(){
+	var getEmploye = new XMLHttpRequest();
+	getEmploye.open("GET","../cadrews/employes/listIdEmploye",true, null, null);
+	getEmploye.responseType="json";
+	var dataliste = document.getElementById("lstAnnuaires");
+	getEmploye.onload=function(){
+		
+		for (var i=0; i<this.response.length; i++){
+			var option = document.createElement('option');
+			option.value=this.response[i].nomEmploye;
+			dataliste.appendChild(option);
+		}
+	}
+	getEmploye.send();
+	var getPoste = new XMLHttpRequest();
+	getPoste.open("GET","../cadrews/employes/listIdEmploye",true, null, null);
+	getPoste.responseType="json";
+	getPoste.onload=function(){
+		for (var i=0; i<this.response.length; i++){
+			var option = document.createElement('option');
+			option.value=this.response[i].poste;
+			dataliste.appendChild(option);
+		}
+	}
+	getPoste.send();
 }
 
 
@@ -159,5 +192,5 @@ window.onload = function(){
 	gestionFooter();
 	supprimeurDeNotifications();
 	maillingAnnonce();
+	remplissageDataListe();
 };
-
