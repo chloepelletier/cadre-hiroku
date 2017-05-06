@@ -6,7 +6,8 @@ function getRessourceDirection(){
 	
 	getEmploye.onload=function(){
 		for (var i=0; i<this.response.length; i++){
-			remplisseur(this.response[i].contenuRessource.split(".")[0] , this.response[i].cheminRessource.split(".")[1], this.response[i].corpsDeMetier, "", this.response[i].idRessource);
+			var taille=this.response[i].cheminRessource.length-3;
+			remplisseur(this.response[i].contenuRessource , this.response[i].cheminRessource[taille]+this.response[i].cheminRessource[taille+1]+this.response[i].cheminRessource[taille+2], this.response[i].corpsDeMetier, "", this.response[i].idRessource);
 		}
 	}
 	getEmploye.send();
@@ -30,14 +31,13 @@ function remplisseur(nomFichier, Type, Corps, num, idRessource){
 	a1_7_1.href="#";
 	a1_7_1.className="boutonSuppr";
 	a1_7_1.id="supr"+idRessource;
-	a1_7_2.href="DownloadServlet?fileName="+nomFichier+"."+Type;
-	a1_7_2.target="_blank";
+	a1_7_2.href="#";
 	a1_7_2.className="boutonDwl";
 	a1_7_2.id="dwl"+idRessource;
 	var span1_7_1 = document.createElement('span');
 	var span1_7_2 = document.createElement('span');
 	span1_7_1.className="glyphicon glyphicon-remove boutons";
-	span1_7_2.className="glyphicon glyphicon-download boutons";
+	span1_7_2.className="glyphicon glyphicon-download-alt boutons";
 	tr2.appendChild(td1_1);
 	tr2.appendChild(td1_3);
 	tr2.appendChild(td1_4);
@@ -90,7 +90,8 @@ function getRessourceByNom(poste){
 	
 	getEmploye.onload=function(){
 		for (var i=0; i<this.response.length; i++){
-			remplisseur(this.response[i].contenuRessource.split(".")[0] , this.response[i].cheminRessource.split(".")[1], this.response[i].corpsDeMetier, 2, this.response[i].idRessource);
+			var taille=this.response[i].cheminRessource.length-3;
+			remplisseur(this.response[i].contenuRessource , this.response[i].cheminRessource[taille]+this.response[i].cheminRessource[taille+1]+this.response[i].cheminRessource[taille+2], this.response[i].corpsDeMetier, 2, this.response[i].idRessource);
 		}
 			
 		if(this.response.length==0){
@@ -105,7 +106,7 @@ function getRessourceByNom(poste){
 	getEmploye.send();
 }
 
-//remplis la dataliste avec les choix existant dans la BDD
+//remplit la dataliste avec les choix existant dans la BDD
 function remplissageDataListe(){
 	var getEmploye = new XMLHttpRequest();
 	getEmploye.open("GET","../cadrews/ressources/listRessource",true, null, null);

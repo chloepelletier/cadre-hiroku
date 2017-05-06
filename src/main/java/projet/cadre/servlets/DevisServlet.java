@@ -48,5 +48,7 @@ public class DevisServlet extends HttpServlet {
 		Devis devis= new Devis(nomSociete,nomDemandeur, mail, telephone, adresse, codePostal, ville, service,message);
 		CadreLibrary.getInstance().saveDevis(devis);
 		resp.sendRedirect("devis");
-	}
+
+}
+
 }
