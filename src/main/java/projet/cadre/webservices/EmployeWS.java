@@ -63,7 +63,7 @@ public class EmployeWS {
 	
 	@DELETE
 	@Path("/delete/{idEmploye}")
-	public Response deleteEmploye(@FormParam("idEmploye") String idEmploye){
+	public Response deleteEmploye(@PathParam("idEmploye") String idEmploye){
 		CadreServices cadreServices = CadreServices.getInstance();
 		try {
 			cadreServices.deleteEmploye(idEmploye);
@@ -76,7 +76,7 @@ public class EmployeWS {
 	}	
 	
 	@PUT
-	@Path("")
+	@Path("/modif")
 	public Response updateMdp(@FormParam("idEmploye") String idEmploye,@FormParam("motDePasse") String motDePasse){
 		CadreServices cadreServices = CadreServices.getInstance();
 		try {

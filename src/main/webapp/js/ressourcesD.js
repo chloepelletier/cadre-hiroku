@@ -106,7 +106,7 @@ function getRessourceByNom(poste){
 	getEmploye.send();
 }
 
-//remplis la dataliste avec les choix existant dans la BDD
+//remplit la dataliste avec les choix existant dans la BDD
 function remplissageDataListe(){
 	var getEmploye = new XMLHttpRequest();
 	getEmploye.open("GET","../cadrews/ressources/listRessource",true, null, null);
