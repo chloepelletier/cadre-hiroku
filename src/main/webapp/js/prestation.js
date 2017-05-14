@@ -1,4 +1,4 @@
-﻿function getSlogan(){
+function getSlogan(){
 	var getList2 = new XMLHttpRequest();
 	getList2.open("GET","cadrews/elementssite/getElementById/aslogan",true, null, null);
 	getList2.responseType="json";
